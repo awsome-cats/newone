@@ -1,4 +1,5 @@
-import { uuid } from 'uuidv4'
+// import { uuid } from 'uuidv4'
+import { v4 as uuidv4 } from 'uuid'
 
 export const state = () => ({
   headlines: [],
@@ -21,7 +22,7 @@ export const actions = {
       // console.log({ articles })
 
       const headlines = articles.map((article) => {
-        const slug = uuid(article.title)
+        const slug = uuidv4(article.title)
         const headline = { ...article, slug }
         return headline
       })

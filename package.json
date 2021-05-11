@@ -12,21 +12,21 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.12.0",
+    "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/proxy": "^2.0.1",
-    "axios": "^0.19.2",
-    "dotenv": "^8.2.0",
-    "firebase": "^7.17.1",
-    "nuxt": "^2.0.0",
-    "uuidv4": "^6.2.0",
-    "vue-material": "^1.0.0-beta-14"
+    "@nuxtjs/proxy": "^2.1.0",
+    "axios": "^0.21.1",
+    "dotenv": "^8.6.0",
+    "firebase": "^7.24.0",
+    "nuxt": "^2.15.5",
+    "uuidv4": "^6.2.8",
+    "vue-material": "^1.0.0-beta-15"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
-    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/eslint-module": "^1.2.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2"
+    "eslint-plugin-nuxt": "^2.0.0"
   }
 }

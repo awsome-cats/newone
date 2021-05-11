@@ -14,13 +14,7 @@
 <script>
 
 export default {
-  /* fetch
-   *  - ニュース全体のロード
-   * headlines
-   *  - 表示される全体のニュース
-   * submitHeadline
-   *  - 引数にニュース記事
-  */
+
   async fetch ({ store }) {
     const apiUrl = '/api/top-headlines?country=jp'
     await store.dispatch('headlines/loadHeadlines', apiUrl)
