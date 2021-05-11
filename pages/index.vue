@@ -1,72 +1,47 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        test-nuxt
-      </h1>
-      <h2 class="subtitle">
-        My cool Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <div>
+    <div v-for="headline in headlines" :key="headline.id">
+      <nuxt-link :to="`headlines/${headline.slug}`">
+        <div @click.prevent="submitHeadline(headline)">
+          {{ headline.title }}
+          {{ headline.source }}
+        </div>
+      </nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 
 export default {
-  components: {
-    Logo
+  /* fetch
+   *  - ニュース全体のロード
+   * headlines
+   *  - 表示される全体のニュース
+   * submitHeadline
+   *  - 引数にニュース記事
+  */
+  async fetch ({ store }) {
+    const apiUrl = '/api/top-headlines?country=jp'
+    await store.dispatch('headlines/loadHeadlines', apiUrl)
+  },
+  computed: {
+    headlines () {
+      return this.$store.getters['headlines/headlines']
+    }
+  },
+  methods: {
+    submitHeadline (headline) {
+      // console.log(headline)
+      this.$store.dispatch('headlines/submitHeadline', headline)
+        .then(() => {
+          this.$router.push('/headlines/' + headline.slug)
+        })
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>

@@ -1,7 +1,7 @@
 {
   "name": "test-nuxt",
   "version": "1.0.0",
-  "description": "My cool Nuxt.js project",
+  "description": "news api",
   "author": "awsome-cats",
   "private": true,
   "scripts": {
@@ -12,7 +12,15 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "@nuxtjs/axios": "^5.12.0",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/proxy": "^2.0.1",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "firebase": "^7.17.1",
+    "nuxt": "^2.0.0",
+    "uuidv4": "^6.2.0",
+    "vue-material": "^1.0.0-beta-14"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
